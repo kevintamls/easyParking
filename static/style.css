@@ -1,0 +1,169 @@
+ @font-face { font-family: Roboto; src: url('Roboto-Regular.ttf'); }
+
+.wrapper{
+    width: 800px;
+    height: 440px;
+    position: relative;
+    background: white;
+    margin: auto; /* centre this div */
+    border-width: 0;
+    padding: 0px;
+}
+.leftcolumn{
+    width: 60%;
+    float:left;
+    font-size: 30px;
+    margin: 0px;
+    width: 375px;
+    background-color: #c8c8c8;
+}
+
+.leftcolumnVisual {
+  width: 60%;
+  float: left;
+  font-size: 30px;
+  margin: 0px;
+  width: 455px;
+  height: 480px;
+  background-color: #c8c8c8;
+}
+
+.middlecolumn{
+  width: 1%;
+  margin: 0px;
+  background-color: #dcdcdc;
+  float: left;
+  height: 390px;
+  padding: 0px;
+  width: 10px;
+}
+
+.middlecolumnVisual {
+  width: 1%;
+  margin: 0px;
+  background-color: #dcdcdc;
+  float: left;
+  height: 480px;
+  padding: 0px;
+  width: 10px;
+}
+.rightcolumn{
+    width: 39%;
+    float:right;
+    margin: 0px;
+    padding: 0px;
+    width: 420px;
+}
+
+.rightcolumnVisual {
+  width: 39%;
+  float: right;
+  margin: 0px;
+  padding: 0px;
+  width: 335px;
+}
+
+.fullcolumn{
+  width: 800px;
+  height:440px;
+  float: left;
+}
+
+.half{
+	height: 145px;
+	font-size: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.half2 {
+  height: 240px;
+  font-size: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.halfLogo {
+  height: 95px;
+  font-size: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.leftcolumn * {
+  padding-left: 3px;
+  border-width: 0px;
+  border-color: white;
+}
+
+.half * {
+  border-width: 0px;
+  border-color: white;
+}
+
+.headdiv {
+  background-color: #FF770A;
+  height: 31px;
+  vertical-align: middle;
+  width: auto;
+  text-align: left;
+  margin-left: 0px;
+  padding: 4px;
+  margin-top: 0px;
+}
+
+header1 {
+  color:white;
+  vertical-align: top;
+  text-align: left;
+  font-size: 25px;
+}
+
+headerSpecial {
+  color: white;
+  position: absolute;
+  vertical-align: top;
+  top: 6px;
+  text-align: left;
+  font-size: 22px;
+}
+
+header2 {
+  color: #585858;
+  padding: 0px;
+  border-width: 0;
+  display:inline-block;
+  font-size:30px;
+}
+
+header3 {
+  color: #585858;
+  padding: 0px;
+  border-width: 0;
+  display:inline-block;
+  font-size:20px;  
+}
+
+header4 {
+  color: #585858;
+  padding: 0px;
+  border-width: 0;
+  display: inline-block;
+  font-size: 15px;
+}
+
+p {
+  color: white;
+  font-size:14px;
+}
+
+
+html,
+body {
+  background: #585858;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  border-width: 0;
+  padding: 0;
+}
