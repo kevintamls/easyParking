@@ -1,4 +1,6 @@
+// Function to load the initial html page
 function indexLoad() {
+  // Div elements to add into html page defined
   var wrapper1 = document.createElement("div");
   wrapper1.id = "wrapper1";
   wrapper1.className = "wrapper";
@@ -19,14 +21,17 @@ function indexLoad() {
   mapCanvas.width = "800px";
   mapCanvas.height = "600px";
 
+  // Appending div elements into document body
   wrapper1.append(leftColumn);
   leftColumn.append(mapCanvas, extras);
-
   document.body.appendChild(wrapper1);
 }
 
+// Executes when document has finished loading (JQuery)
 $(document).ready(function () {
-  var mapCreated = 0
+  // Map Creation
+  var mapCreated = 0 // Variable to check whether map has been created for if/else statement in AJAX
+  // Map Object Definition
   mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW50YW1scyIsImEiOiJja2xtYjhrbTIwN2lhMnBvMzZzNnBsaGlrIn0.My-zIZ0u7uBFCamIm2qDzA';
   var map = new mapboxgl.Map({
   container: 'leftColumn',
@@ -34,21 +39,25 @@ $(document).ready(function () {
   center: [114.1, 22.3],
   zoom: 10
   });
-
+  
+  // Adding Geocoder to map, powers search function on map
   map.addControl(
     new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl
     })
   );
+  
+  // AJAX function definition, takes jsonified dictionary from Python backend,
+  // executed every 5 seconds for demo purposes.
   function fresh_ajax() {
     $.ajax({
       type: "GET",
       url: "/_get_data/",
       success: function (resp) {
-        var coordinateJson = JSON.parse(resp.coordinates)
-        console.log(typeof map)
-        if (mapCreated === 0) {
+        var coordinateJson = JSON.parse(resp.coordinates) // Parses jsonification to JS Object
+        if (mapCreated === 0) { // If condition where if initial map hasn't been created, load
+                                // resources for map + adds data source
           mapCreated = 1
           map.on('load', function() {
             map.loadImage(
@@ -84,31 +93,22 @@ $(document).ready(function () {
                       '0', '#008000',
                       '1', '#FF0000',
                       // '2', '#FF0000',
-                      '#FF0000'
-                      
-                    ]
-                  }
+                      '#FF0000'                      
+                    ]}
                   });
-                /*window.setInterval(function () {
-                  map.getSource('points').setData(coordinateJson)
-                }, 5000)*/
-              }
-              
-            )
-
-          })
+                }
+              )
+            }
+          )
         }
         else {
-          map.getSource('points').setData(coordinateJson)
+          map.getSource('points').setData(coordinateJson) // Reloads new data from backend jasonification
         }
-
-        }
-      })
-    }
-
-  fresh_ajax();
-
-  
+      }
+    })
+  }
+  fresh_ajax(); // Initial execution of ajax function for map/data creation
+  // object to exsecute fresh_ajax every 5 seconds
   window.setInterval(function () {
     fresh_ajax();
   }, 5000);
