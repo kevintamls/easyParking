@@ -63,7 +63,7 @@ def coordinateConvertion(x_old, y_old):
     #print(d)
     gdf = gpd.GeoDataFrame(d, crs = 'EPSG:3857')
     gdfJson = gdf.to_json()
-    with open('gdf.json', 'w') as f:
+    with open('gdfLong.json', 'w') as f:
         json.dump(gdfJson, f)
 
     #geojsonio.display(gdf.to_json())
