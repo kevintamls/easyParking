@@ -1,8 +1,8 @@
-/*@font-face { font-family: Arial; src: url('arial.ttf'); }*/
- @font-face {
+@font-face { font-family: Arial; src: url('arial.ttf'); }
+ /* @font-face {
    font-family: Roboto;
    src: url('Roboto-Regular.ttf');
- }
+ } */
 
 .wrapper{
     width: 1600px;
