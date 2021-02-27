@@ -15,7 +15,7 @@ function indexLoad() {
   headDivSupply.style.verticalAlign = "middle";
 
   var headDivTitle = document.createElement("headerSpecial")
-  headDivTitle.innerHTML = "Supply Air Temperature";
+  headDivTitle.innerHTML = "Roadside Parking Points";
   headDivTitle.style.left = "3px";
   headDivTitle.style.top = "3px";
   headDivTitle.style.position = "relative";
@@ -30,9 +30,9 @@ function indexLoad() {
   mapCanvas.id = "map";
   mapCanvas.width = "400px";
   mapCanvas.height = "300px";
-  /*mapCanvas.style.display = "inline-block";
-  mapCanvas.style.borderWidth = "0";
-  mapCanvas.style.position = "absolute";*/
+  // mapCanvas.style.display = "inline-block";
+  // mapCanvas.style.borderWidth = "0";
+  // mapCanvas.style.position = "absolute";
 
   wrapper1.append(leftColumn);
   leftColumn.appendChild(headDivSupply);

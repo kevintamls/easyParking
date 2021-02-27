@@ -113,7 +113,7 @@
   margin-top: 0px;
 }
 
-header1 {
+h1 {
   color:white;
   vertical-align: top;
   text-align: left;
@@ -129,7 +129,7 @@ headerSpecial {
   font-size: 22px;
 }
 
-header2 {
+h2 {
   color: #585858;
   padding: 0px;
   border-width: 0;
@@ -137,7 +137,7 @@ header2 {
   font-size:30px;
 }
 
-header3 {
+h3 {
   color: #585858;
   padding: 0px;
   border-width: 0;
@@ -145,7 +145,7 @@ header3 {
   font-size:20px;  
 }
 
-header4 {
+h4 {
   color: #585858;
   padding: 0px;
   border-width: 0;
