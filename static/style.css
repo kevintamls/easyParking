@@ -1,4 +1,8 @@
-@font-face { font-family: Arial; src: url('arial.ttf'); }
+  @font-face {
+    font-family: Roboto;
+    src: url('Roboto-Regular.ttf');
+  }
+/*@font-face { font-family: arial; src: url('arial.ttf'); }
  /* @font-face {
    font-family: Roboto;
    src: url('Roboto-Regular.ttf');
@@ -250,7 +254,7 @@ p {
 
 html,
 body {
-  background: rgb(245, 193, 151);
+  background: rgb(120, 86, 153);
   margin: 0;
   font-family: 'Roboto', sans-serif;
   border-width: 0;
