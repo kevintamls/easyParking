@@ -42,7 +42,7 @@ def get_data():
         for items in coordinateJsonConverted['features']:
             tempCoorStore.append(items)
         for i in range(len(tempCoorStore)):
-            tempCoorStore[i]['properties'] = {'avail': str(randint(0,2))}
+            tempCoorStore[i]['properties'] = {'avail': str(randint(0,1))}
     f.close()
     finalDict = {"type": "FeatureCollection", "features": tempCoorStore}
     with open('test.json', 'w') as f:

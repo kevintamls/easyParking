@@ -1,8 +1,8 @@
  @font-face { font-family: Roboto; src: url('Roboto-Regular.ttf'); }
 
 .wrapper{
-    width: 800px;
-    height: 440px;
+    width: 1600px;
+    height: 880px;
     position: relative;
     background: white;
     margin: auto; /* centre this div */
@@ -64,8 +64,8 @@
 }
 
 .fullcolumn{
-  width: 800px;
-  height:440px;
+  width: 1600px;
+  height:880px;
   float: left;
 }
 

@@ -28,8 +28,8 @@ function indexLoad() {
 
   var mapCanvas = document.createElement("div");
   mapCanvas.id = "map";
-  mapCanvas.width = "400px";
-  mapCanvas.height = "300px";
+  mapCanvas.width = "800px";
+  mapCanvas.height = "600px";
   // mapCanvas.style.display = "inline-block";
   // mapCanvas.style.borderWidth = "0";
   // mapCanvas.style.position = "absolute";
@@ -43,65 +43,75 @@ function indexLoad() {
 }
 
 $(document).ready(function () {
+  var mapCreated = 0
+  mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW50YW1scyIsImEiOiJja2xtYjhrbTIwN2lhMnBvMzZzNnBsaGlrIn0.My-zIZ0u7uBFCamIm2qDzA';
+  var map = new mapboxgl.Map({
+  container: 'leftColumn',
+  style: 'mapbox://styles/mapbox/streets-v11',
+  center: [114.1, 22.3],
+  zoom: 10
+  });
   function fresh_ajax() {
     $.ajax({
       type: "GET",
       url: "/_get_data/",
       success: function (resp) {
         var coordinateJson = JSON.parse(resp.coordinates)
-        mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW50YW1scyIsImEiOiJja2xtYjhrbTIwN2lhMnBvMzZzNnBsaGlrIn0.My-zIZ0u7uBFCamIm2qDzA';
-        
-        var map = new mapboxgl.Map({
-        container: 'leftColumn',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [114.1, 22.3],
-        zoom: 10
-        });
+        console.log(typeof map)
+        if (mapCreated === 0) {
+          mapCreated = 1
+          map.on('load', function() {
+            map.loadImage(
+              'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+              function (error, image) {
+              if (error) throw error;
+              map.addImage('custom-marker', image, {sdf: true});
+              map.addSource('points', {
+                'type': 'geojson',
+                'data': coordinateJson})
 
-
-        map.on('load', function() {
-          map.loadImage(
-            'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
-            function (error, image) {
-            if (error) throw error;
-            map.addImage('custom-marker', image, {sdf: true});
-            map.addSource('points', {
-              'type': 'geojson',
-              'data': coordinateJson})
-
-            map.addLayer({
-              'id': 'points',
-              'type': 'symbol',
-              'source': 'points',
-              'layout': {
-              'icon-image': 'custom-marker',
-              'icon-size': 0.4,
-              // get the title name from the source's "title" property
-              'text-field': ['get', 'title'],
-              'text-font': [
-              'Open Sans Semibold',
-              'Arial Unicode MS Bold'
-              ],
-              'text-offset': [0, 1.25],
-              'text-anchor': 'top'
-              },
-              'paint': {
-                //'icon-color': '#FF0000'
-                'icon-color': [
-                  'match',
-                  ['get', 'avail'],
-                  '0', '#008000',
-                  '1', '#FF8C00',
-                  '2', '#FF0000'
-                  
-                ]
+              map.addLayer({
+                'id': 'points',
+                'type': 'symbol',
+                'source': 'points',
+                'layout': {
+                'icon-image': 'custom-marker',
+                'icon-size': 0.4,
+                // get the title name from the source's "title" property
+                'text-field': ['get', 'title'],
+                'text-font': [
+                'Open Sans Semibold',
+                'Arial Unicode MS Bold'
+                ],
+                'text-offset': [0, 1.25],
+                'text-anchor': 'top'
+                },
+                'paint': {
+                  //'icon-color': '#FF0000'
+                  'icon-color': [
+                    'match',
+                    ['get', 'avail'],
+                    '0', '#008000',
+                    '1', '#FF0000',
+                    // '2', '#FF0000',
+                    '#FF0000'
+                    
+                  ]
+                }
+                });
+              /*window.setInterval(function () {
+                map.getSource('points').setData(coordinateJson)
+              }, 5000)*/
               }
-              });
-            }
-            
-          )
+              
+            )
 
-        })
+          })
+        }
+        else {
+          map.getSource('points').setData(coordinateJson)
+        }
+
         }
       })
     }
@@ -109,7 +119,7 @@ $(document).ready(function () {
   fresh_ajax();
 
   
-  /*window.setInterval(function () {
+  window.setInterval(function () {
     fresh_ajax();
-  }, 5000);*/
+  }, 5000);
 });
