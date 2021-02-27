@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
   <!--link rel="stylesheet" href="{{ url_for('static', filename='mapbox-gl.css') }}"/>
@@ -9,15 +10,26 @@
   <script src="{{ url_for('static', filename='script.js') }}"></script>
   <title>EasyPark</title>
 </head>
-  <body onload="indexLoad()">
-    <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <!-- <li><a href="./map.html">Map</a></li> -->
-        </ul>
-      </nav>
-    </header>
-    <h1>Home</h1>
-    <p>This is the home page for the web app. </p>
+
+  <body onload="indexLoad()", style="background-color: rgb(245, 193, 151);">
+    <div class="header">
+      <div class="inner_header">
+        <div class="logo_container">
+          <h1>easy<span>parking</span></h1>
+        </div>
+
+        <!-- <ul class="navigation">
+          <a><li>Home</li></a>
+          <a><li>About</li></a>
+          <a><li>Help</li></a>
+        </ul> -->
+      </div>
+    </div>
+
+    <!-- <div class="footer">
+      <div class="inner_footer">
+        
+      </div>
+    </div> -->
+
   </body>

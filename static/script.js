@@ -50,27 +50,32 @@ $(document).ready(function () {
       success: function (resp) {
         var coordinateJson = JSON.parse(resp.coordinates)
         mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW50YW1scyIsImEiOiJja2xtYjhrbTIwN2lhMnBvMzZzNnBsaGlrIn0.My-zIZ0u7uBFCamIm2qDzA';
+        
         var map = new mapboxgl.Map({
         container: 'leftColumn',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [114.1, 22.3],
-        zoom: 9
+        zoom: 10
         });
+
+
         map.on('load', function() {
           map.loadImage(
             'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
             function (error, image) {
             if (error) throw error;
-            map.addImage('custom-marker', image);
+            map.addImage('custom-marker', image, {sdf: true});
             map.addSource('points', {
               'type': 'geojson',
               'data': coordinateJson})
+
             map.addLayer({
               'id': 'points',
               'type': 'symbol',
               'source': 'points',
               'layout': {
               'icon-image': 'custom-marker',
+              'icon-size': 0.4,
               // get the title name from the source's "title" property
               'text-field': ['get', 'title'],
               'text-font': [
@@ -79,6 +84,9 @@ $(document).ready(function () {
               ],
               'text-offset': [0, 1.25],
               'text-anchor': 'top'
+              },
+              'paint': {
+                'icon-color': '#FF0000'
               }
               });
             }
