@@ -156,7 +156,6 @@ def get_data():
     with open('gdf.json', 'r') as f:
         coordinateJson = json.load(f)
     f.close()
-    print(coordinateJson)
     return jsonify({'coordinates': coordinateJson})
 
 if __name__ == "__main__":

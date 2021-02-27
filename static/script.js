@@ -49,8 +49,6 @@ $(document).ready(function () {
       url: "/_get_data/",
       success: function (resp) {
         var coordinateJson = JSON.parse(resp.coordinates)
-        console.log(typeof(resp.coordinates))
-        console.log(coordinateJson)
         mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW50YW1scyIsImEiOiJja2xtYjhrbTIwN2lhMnBvMzZzNnBsaGlrIn0.My-zIZ0u7uBFCamIm2qDzA';
         var map = new mapboxgl.Map({
         container: 'leftColumn',
@@ -66,17 +64,7 @@ $(document).ready(function () {
             map.addImage('custom-marker', image);
             map.addSource('points', {
               'type': 'geojson',
-              'data': {
-                "type": "Feature",
-                "geometry": {
-                "type": "Point",
-                "coordinates": [-77.0323, 38.9131]
-                },
-              "properties": {
-                "title": "test",
-                "market-symbol": "monument"
-              }
-            }})
+              'data': coordinateJson})
             map.addLayer({
               'id': 'points',
               'type': 'symbol',
