@@ -86,7 +86,15 @@ $(document).ready(function () {
               'text-anchor': 'top'
               },
               'paint': {
-                'icon-color': '#FF0000'
+                //'icon-color': '#FF0000'
+                'icon-color': [
+                  'match',
+                  ['get', 'avail'],
+                  '0', '#008000',
+                  '1', '#FF8C00',
+                  '2', '#FF0000'
+                  
+                ]
               }
               });
             }
