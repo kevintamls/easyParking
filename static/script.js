@@ -8,18 +8,6 @@ function indexLoad() {
   leftColumn.id = "leftColumn";
   leftColumn.className = "fullcolumn";
 
-  var headDivSupply = document.createElement("div");
-  headDivSupply.className = "headdiv";
-  headDivSupply.id = "backButton";
-  headDivSupply.style.position = "relative";
-  headDivSupply.style.verticalAlign = "middle";
-
-  var headDivTitle = document.createElement("headerSpecial")
-  headDivTitle.innerHTML = "Roadside Parking Points";
-  headDivTitle.style.left = "3px";
-  headDivTitle.style.top = "3px";
-  headDivTitle.style.position = "relative";
-
   var extras = document.createElement("div");
   extras.id = "extras";
   extras.style.position = "fixed";
@@ -35,11 +23,9 @@ function indexLoad() {
   // mapCanvas.style.position = "absolute";
 
   wrapper1.append(leftColumn);
-  leftColumn.appendChild(headDivSupply);
-  headDivSupply.append(headDivTitle, mapCanvas, extras);
+  leftColumn.append(mapCanvas, extras);
 
   document.body.appendChild(wrapper1);
-  //document.body.appendChild(mapCanvas);
 }
 
 $(document).ready(function () {
