@@ -8,22 +8,24 @@ A proof of concept for smart parking (as a web app, ultimately as a mobile app) 
 
 1. Clone the repository into your respective directory.
 2. Change directory into repository.
-3. Confirm that puthon version 3.8.5 and pip3 has been installed.
+3. Confirm that python version 3.8.5 and pip3 has been installed.
 4. Using your desired terminal, install required dependencies by typing
 
-'''
-pip3 install -r requirements.txt
-'''
+    ```(bash)
+    pip3 install -r requirements.txt
+    ```
+
 5. Run by typing
-'''
+
+```(bash)
 python3 app.py
-'''
+```
 
 ## Sections of implementation
 
 ### Backend: Flask and Python
 
-Pre-processing of data and the backend of the application has been designed and coded in Python and the use of Flask, a web based UWSGI web framework. Due to the size of the competition and the scope of the project, a full production based Flask project structure was not used. Instead, all backend assets are placed into 2 main python files, convertCoordinates.py and app.py. Flask is located in app.py, where the initialisation of the Flask app and demo data is processed. convertCoordinates.py was written to convert the HK 1980 grid coordinate system that the HK Transport Depart parking spots CSV had into longtitude/latititude coordinates that is compatible with our frontend technology stack. Implementation of an web API from the Survey and Mapping Office of the Land's Department in Hong Kong was completed.
+Pre-processing of data and the backend of the application has been designed and coded in Python and the use of Flask, a web based UWSGI web framework. Due to the size of the competition and the scope of the project, a full production based Flask project structure was not used. Instead, all backend assets are placed into 2 main python files, convertCoordinates.py and app.py. Flask is located in app.py, where the initialisation of the Flask app and demo data is processed. convertCoordinates.py was written to convert the HK 1980 grid coordinate system that the HK Transport Depart parking spots CSV had into longitude/latitude coordinates that is compatible with our frontend technology stack. Implementation of an web API from the Survey and Mapping Office of the Land's Department in Hong Kong was completed.
 
 ### Frontend: JavaScript, Mapbox, JQuery, AJAX, HTML, CSS
 
