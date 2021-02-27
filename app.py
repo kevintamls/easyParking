@@ -39,8 +39,5 @@ def get_data():
     return jsonify({'coordinates': coordinateJson})
 
 if __name__ == "__main__":
-    # app.run(host='0.0.0.0', port=8080, debug=True)
-    #app.run(host='0.0.0.0', port=8080, debug=True)
-    # set_start_method('spawn')
     p1 = Process(target=runFlask)
     p1.start()
