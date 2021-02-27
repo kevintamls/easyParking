@@ -17,9 +17,9 @@ A proof of concept for smart parking (as a web app, ultimately as a mobile app) 
 
 5. Run by typing
 
-```(bash)
-python3 app.py
-```
+    ```(bash)
+    python3 app.py
+    ```
 
 ## Sections of implementation
 
