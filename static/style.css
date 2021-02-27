@@ -1,4 +1,4 @@
- @font-face { font-family: Roboto; src: url('Roboto-Regular.ttf'); }
+ @font-face { font-family: Arial; src: url('Arial.ttf'); }
 
 .wrapper{
     width: 1600px;
@@ -157,13 +157,13 @@
   height: 100%;
   display: table-cell;
   vertical-align: middle;
-  font-family: 'Helvetica Neue';
+  font-family: 'Arial';
   font-size: 32px;
   font-weight: 300;
 }
 
 .logo_container h1 span {
-  font-family: 'Helvetica Neue';
+  font-family: 'Arial';
   font-weight: 600;
 }
 
